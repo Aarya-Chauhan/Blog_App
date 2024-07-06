@@ -93,13 +93,47 @@ exports.updateBlogController = async(req,res) => {
 //GET single blog
 exports.getBLogByIdCOntroller = async(req,res) => {
     try {
+        const {id} = req.params
+        const blog = await blogModel.findById(id);
+        if(!blog){
+            return res.status(400).send({
+                success:false,
+                message: "blog not found"
+            })
+        }
+        return res.status(200).send({
+            success:true,
+            message:"fetching single blog",
+            blog,
+        })
         
     } catch (error) {
         console.log(error);
-        return res.send()
+        return res.status(400).send({
+            success:false,
+            message: "error while fetching the blog!!",
+            error
+        })
         
     }
 }
 
 //delete blogs
-exports.deleteBlogController = () => {}
+exports.deleteBlogController = async(req,res) => {
+    try {
+        const {id} = req.params;
+        const deleteBlog = await blogModel.findByIdAndDelete(id);
+        return res.status(200).send({
+             success:true,
+             message:"blog post deleted succesfully",
+        })
+        
+    } catch (error) {
+        return res.status(503).send({
+            success:false,
+            message:"error while deleting the blog please try again later",
+            error
+        })
+        
+    }
+}
