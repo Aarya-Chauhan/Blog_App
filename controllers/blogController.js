@@ -155,3 +155,7 @@ exports.deleteBlogController = async (req, res) => {
       });
     }
   };
+
+
+//GET || user-blogs
+exports.getUserBlogController = async(req,res) => {}
