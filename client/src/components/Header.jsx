@@ -1,12 +1,27 @@
 import React, {useState} from 'react';
+import {authActions} from '../redux/store'
 import {Box, AppBar, Toolbar, Button, Typography, Tabs, Tab } from '@mui/material';
-import {useSelector} from 'react-redux'
-import { Link } from 'react-router-dom';
+import {useSelector, useDispatch} from 'react-redux'
+import { Link, useNavigate } from 'react-router-dom';
 const Header = () => {
+  const navigate = useNavigate()
   //global state
   const isLogin = useSelector(state=>state.isLogin);
+  //dispatch
+  const dispatch = useDispatch()
   //state
-  const [value,setValue] = useState();
+  const [value,setValue] = useState()
+  //handleLogout
+  const handleLogout = () => {
+    try {
+      dispatch(authActions.logout());
+      alert("logged out");
+      navigate('/login')  ;
+    } catch (error) {
+      console.log(error)
+    }
+
+  }
   return (
     <>
     <AppBar position='sticky'>
@@ -30,7 +45,7 @@ const Header = () => {
                 </>
               )}
               {isLogin && (
-                  <Button sx={{margin:1,color:'white'}} >Logout</Button>
+                  <Button sx={{margin:1,color:'white'}} onClick={handleLogout} >Logout</Button>
               )}
             </Box>
         </Toolbar>

@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 import {Box, Typography, Button, TextField} from '@mui/material';
 import {useNavigate} from 'react-router-dom';
+import axios from "axios";
 
 const Register = () => {
   const navigate = useNavigate()
@@ -18,9 +19,19 @@ const Register = () => {
     }))
   }
   //handleSubmit
-  const handleSubmit = (e) => {
+  const handleSubmit = async(e) => {
     e.preventDefault()
-    console.log(inputs);
+    try {
+      const {data} = await axios.post('/api/v1/user/register',{username:inputs.name, email:inputs.email,
+        password:inputs.password
+      })
+      if(data.success){
+        alert("user register succesfully")
+        navigate('/login');
+      }
+    } catch (error) {
+      console.log(error)
+    }
   }
 
   return (
