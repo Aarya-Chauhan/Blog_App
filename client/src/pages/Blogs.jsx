@@ -21,7 +21,10 @@ const Blogs = () => {
 
   return (
     <div>
-      <BlogCard />
+      {blogs && blogs.map(blog => (
+          <BlogCard title={blog.title} description={blog.description} image={blog.image} username={blog.username}/>
+      ))}
+      
     </div>
   )
 }
