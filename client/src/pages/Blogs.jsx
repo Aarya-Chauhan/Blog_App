@@ -22,7 +22,7 @@ const Blogs = () => {
   return (
     <div>
       {blogs && blogs.map(blog => (
-          <BlogCard title={blog.title} description={blog.description} image={blog.image} username={blog.username}/>
+          <BlogCard title={blog.title} description={blog.description} image={blog.image} username={blog.user.username} time={blog.createdAt}/>
       ))}
       
     </div>

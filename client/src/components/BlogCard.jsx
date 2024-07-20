@@ -13,12 +13,7 @@ import ShareIcon from '@mui/icons-material/Share';
 import MoreVertIcon from '@mui/icons-material/MoreVert';
 
 
-export default function BlogCard({title,description,image,username}) {
-  const [expanded, setExpanded] = React.useState(false);
-
-  const handleExpandClick = () => {
-    setExpanded(!expanded);
-  };
+export default function BlogCard({title,description,image,username,time}) {
 
   return (
     <Card sx={{ width: "40%", margin:'auto',marginTop:2,paddingTop:2,boxShadow:'5px 5px 10px #ccc',":hover":{
@@ -28,7 +23,6 @@ export default function BlogCard({title,description,image,username}) {
       <CardHeader
         avatar={
           <Avatar sx={{ bgcolor: red[500] }} aria-label="recipe">
-            {username}
           </Avatar>
         }
         action={
@@ -37,6 +31,7 @@ export default function BlogCard({title,description,image,username}) {
           </IconButton>
         }
         title={username}
+        time={time}
       />
       <CardMedia
         component="img"
@@ -45,6 +40,9 @@ export default function BlogCard({title,description,image,username}) {
         alt= "alt"
       />
       <CardContent>
+        <Typography variant="body3" color="text.secondary">
+          {title}
+        </Typography>
         <Typography variant="body2" color="text.secondary">
           {description}
         </Typography>
