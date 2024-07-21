@@ -10,7 +10,7 @@ import Typography from '@mui/material/Typography';
 import { red } from '@mui/material/colors';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import ShareIcon from '@mui/icons-material/Share';
-import MoreVertIcon from '@mui/icons-material/MoreVert';
+
 
 
 export default function BlogCard({title,description,image,username,time}) {
@@ -24,11 +24,6 @@ export default function BlogCard({title,description,image,username,time}) {
         avatar={
           <Avatar sx={{ bgcolor: red[500] }} aria-label="recipe">
           </Avatar>
-        }
-        action={
-          <IconButton aria-label="settings">
-            <MoreVertIcon />
-          </IconButton>
         }
         title={username}
         time={time}
