@@ -20,7 +20,6 @@ const UserBlogs = () => {
   useEffect(() => {
     getUserBlogs();
   }, []);
-  console.log(blogs);
   return (
     <div>
       {blogs && blogs.length > 0 ? (
