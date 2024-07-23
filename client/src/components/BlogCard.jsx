@@ -36,10 +36,10 @@ export default function BlogCard({title,description,image,username,time}) {
       />
       <CardContent>
         <Typography variant="body3" color="text.secondary">
-          {title}
+          Title: {title}
         </Typography>
         <Typography variant="body2" color="text.secondary">
-          {description}
+          Description: {description}
         </Typography>
       </CardContent>
       <CardActions disableSpacing>
