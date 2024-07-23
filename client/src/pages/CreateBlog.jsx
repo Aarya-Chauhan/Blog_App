@@ -5,12 +5,12 @@ import { useNavigate } from "react-router-dom";
 import toast from "react-hot-toast"
 
 
-const CreateBlog = () => {
-    const [inputs,setInputs] = useState({
-        title:'',
-        description:'',
-        image:''
-    })
+    const CreateBlog = () => {
+        const [inputs,setInputs] = useState({
+            title:'',
+            description:'',
+            image:''
+        })
     const id = localStorage.getItem("userId");
     const navigate = useNavigate()
     //handle change function
@@ -61,7 +61,7 @@ const CreateBlog = () => {
                 padding={3}
                 color="gray"
               >
-                Create A Pots
+                Create A Post
               </Typography>
               <InputLabel
                 sx={{  mt: 2, fontSize: "24px", fontWeight: "bold" }}

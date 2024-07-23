@@ -10,16 +10,25 @@ import Typography from '@mui/material/Typography';
 import { red } from '@mui/material/colors';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import ShareIcon from '@mui/icons-material/Share';
+import ModeEdit from '@mui/icons-material/ModeEdit';
+import DeleteIcon from '@mui/icons-material/Delete'
+import { Box } from '@mui/material';
 
 
 
-export default function BlogCard({title,description,image,username,time}) {
-
+export default function BlogCard({title,description,image,username,time,id,isUser}) {
   return (
     <Card sx={{ width: "40%", margin:'auto',marginTop:2,paddingTop:2,boxShadow:'5px 5px 10px #ccc',":hover":{
       boxShadow:"10px 10px 20px #ccc",
       cursor:"pointer"
-    } }}>
+    }}}>
+      {isUser && (
+          <Box display={'flex'}>
+
+          </Box>
+
+      )}
+
       <CardHeader
         avatar={
           <Avatar sx={{ bgcolor: red[500] }} aria-label="recipe">

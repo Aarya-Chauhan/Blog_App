@@ -26,6 +26,7 @@ const UserBlogs = () => {
         blogs.map((blog) => (
           <BlogCard
             id={blog._id}
+            isUSer={true}
             isUser={true}
             title={blog.title}
             description={blog.description}
