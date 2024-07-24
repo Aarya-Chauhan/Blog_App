@@ -13,10 +13,16 @@ import ShareIcon from '@mui/icons-material/Share';
 import ModeEditIcon from '@mui/icons-material/ModeEdit';
 import DeleteIcon from '@mui/icons-material/Delete'
 import { Box } from '@mui/material';
+import { useNavigate } from 'react-router-dom';
 
 
 
 export default function BlogCard({title,description,image,username,time,id,isUser}) {
+  const navigate = useNavigate();
+  //handle edit button
+  const handleEdit = () => {
+    navigate(`/blog-details/${id}`)
+  }
   return (
     <Card sx={{ width: "40%", margin:'auto',marginTop:2,paddingTop:2,boxShadow:'5px 5px 10px #ccc',":hover":{
       boxShadow:"10px 10px 20px #ccc",
@@ -24,7 +30,7 @@ export default function BlogCard({title,description,image,username,time,id,isUse
     }}}>
       {isUser && (
           <Box display={'flex'}>
-            <IconButton>
+            <IconButton onClick={handleEdit} sx={{marginLeft:'auto'}}>
               <ModeEditIcon/>
             </IconButton>
             <IconButton>
