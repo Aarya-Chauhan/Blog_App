@@ -3,10 +3,12 @@ import {authActions} from '../redux/store'
 import {Box, AppBar, Toolbar, Button, Typography, Tabs, Tab } from '@mui/material';
 import {useSelector, useDispatch} from 'react-redux'
 import { Link, useNavigate } from 'react-router-dom';
+import toast from 'react-hot-toast';
 const Header = () => {
   const navigate = useNavigate()
   //global state
-  const isLogin = useSelector(state=>state.isLogin);
+  let isLogin = useSelector(state=>state.isLogin);
+  isLogin = isLogin||localStorage.getItem('userId')
   //dispatch
   const dispatch = useDispatch()
   //state
@@ -15,7 +17,7 @@ const Header = () => {
   const handleLogout = () => {
     try {
       dispatch(authActions.logout());
-      alert("logged out");
+      toast.success("logged out");
       navigate('/login')  ;
     } catch (error) {
       console.log(error)

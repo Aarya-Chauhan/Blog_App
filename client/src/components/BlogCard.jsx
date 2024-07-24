@@ -30,7 +30,7 @@ export default function BlogCard({title,description,image,username,time,id,isUse
       const {data} = await axios.delete(`/api/v1/blog/delete-blog/${id}`)
       if(data?.success){
         alert('blog deleted')
-        navigate('/my-blogs')
+        window.location.reload();
       }
       
     } catch (error) {
@@ -44,10 +44,10 @@ export default function BlogCard({title,description,image,username,time,id,isUse
     }}}>
       {isUser && (
           <Box display={'flex'}>
-            <IconButton onClick={handleEdit} sx={{marginLeft:'auto'}}>
+            <IconButton onClick={handleEdit} sx={{marginLeft:'auto'}} color='primary'>
               <ModeEditIcon/>
             </IconButton>
-            <IconButton onClick={handleDelete}>
+            <IconButton onClick={handleDelete} color={'error'}>
               <DeleteIcon />
             </IconButton>
           </Box>
