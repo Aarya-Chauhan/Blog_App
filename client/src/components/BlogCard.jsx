@@ -15,6 +15,7 @@ import DeleteIcon from '@mui/icons-material/Delete'
 import { Box } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import toast from 'react-hot-toast';
 
 
 
@@ -29,7 +30,7 @@ export default function BlogCard({title,description,image,username,time,id,isUse
     try {
       const {data} = await axios.delete(`/api/v1/blog/delete-blog/${id}`)
       if(data?.success){
-        alert('blog deleted')
+        toast.success('blog deleted')
         window.location.reload();
       }
       

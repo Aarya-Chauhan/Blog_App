@@ -18,6 +18,7 @@ const Header = () => {
     try {
       dispatch(authActions.logout());
       toast.success("logged out");
+      localStorage.clear()
       navigate('/login')  ;
     } catch (error) {
       console.log(error)
