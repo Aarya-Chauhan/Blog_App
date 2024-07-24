@@ -14,6 +14,7 @@ import ModeEditIcon from '@mui/icons-material/ModeEdit';
 import DeleteIcon from '@mui/icons-material/Delete'
 import { Box } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
 
 
 
@@ -22,6 +23,19 @@ export default function BlogCard({title,description,image,username,time,id,isUse
   //handle edit button
   const handleEdit = () => {
     navigate(`/blog-details/${id}`)
+  }
+  //handle delete
+  const handleDelete = async() => {
+    try {
+      const {data} = await axios.delete(`/api/v1/blog/delete-blog/${id}`)
+      if(data?.success){
+        alert('blog deleted')
+        navigate('/my-blogs')
+      }
+      
+    } catch (error) {
+      console.log(error)
+    }
   }
   return (
     <Card sx={{ width: "40%", margin:'auto',marginTop:2,paddingTop:2,boxShadow:'5px 5px 10px #ccc',":hover":{
@@ -33,8 +47,8 @@ export default function BlogCard({title,description,image,username,time,id,isUse
             <IconButton onClick={handleEdit} sx={{marginLeft:'auto'}}>
               <ModeEditIcon/>
             </IconButton>
-            <IconButton>
-              <DeleteIcon/>
+            <IconButton onClick={handleDelete}>
+              <DeleteIcon />
             </IconButton>
           </Box>
       )}
