@@ -10,7 +10,7 @@ import Typography from '@mui/material/Typography';
 import { red } from '@mui/material/colors';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import ShareIcon from '@mui/icons-material/Share';
-import ModeEdit from '@mui/icons-material/ModeEdit';
+import ModeEditIcon from '@mui/icons-material/ModeEdit';
 import DeleteIcon from '@mui/icons-material/Delete'
 import { Box } from '@mui/material';
 
@@ -24,9 +24,13 @@ export default function BlogCard({title,description,image,username,time,id,isUse
     }}}>
       {isUser && (
           <Box display={'flex'}>
-
+            <IconButton>
+              <ModeEditIcon/>
+            </IconButton>
+            <IconButton>
+              <DeleteIcon/>
+            </IconButton>
           </Box>
-
       )}
 
       <CardHeader
