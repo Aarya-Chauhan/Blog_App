@@ -1,5 +1,5 @@
 <div align="center">
-      <h1> <img src="🌐" width="80px"><br/>Blog App</h1>
+      <h1> 🌐<br/>Blog App</h1>
      </div>
 <p align="center"> <a href="https://x.com/Aarya1101" target="_blank"><img alt="" src="https://img.shields.io/badge/Twitter-1DA1F2?style=normal&logo=twitter&logoColor=white" style="vertical-align:center" /></a> <a href="https://www.instagram.com/aarya_c111/" target="_blank"><img alt="" src="https://img.shields.io/badge/Instagram-E4405F?style=normal&logo=instagram&logoColor=white" style="vertical-align:center" /></a> <a href="https://www.linkedin.com/in/aarya-chauhan}" target="_blank"><img alt="" src="https://img.shields.io/badge/LinkedIn-0077B5?style=normal&logo=linkedin&logoColor=white" style="vertical-align:center" /></a> </p>
 
